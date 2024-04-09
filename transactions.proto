@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+service Transactions {
+  rpc SumAmount (SumAmountRequest) returns (SumAmountResponse) {}
+}
+
+message SumAmountRequest {
+  int32 user_id = 1;
+  google.protobuf.Timestamp start_time = 2;
+  google.protobuf.Timestamp end_time = 3;
+}
+
+message SumAmountResponse {
+  double sum = 1;
+  double execution_time = 2;
+}
+
